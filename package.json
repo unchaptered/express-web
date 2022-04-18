@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=prod ./src/app.js",
+    "start:dev": "nodemon cross-env NODE_ENV=dev ./src/app.js",
+    "start:test": "cross-env NODE_ENV=test ./src/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,14 @@
   },
   "homepage": "https://github.com/unchaptered/express-web#readme",
   "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "node-mocks-http": "^1.11.0",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }
