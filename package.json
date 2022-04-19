@@ -5,9 +5,18 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "cross-env NODE_ENV=prod ./src/app.js",
-    "start:dev": "nodemon cross-env NODE_ENV=dev ./src/app.js",
-    "start:test": "cross-env NODE_ENV=test ./src/app.js"
+    "prestart": "npm run build",
+    "build": "babel src/app.js",
+    "start": "cross-env NODE_ENV=prod babel-node ./dist/app.js",
+    "start:dev": "cross-env NODE_ENV=dev nodemon --exec babel-node ./src/app.js",
+    "start:test": "cross-env NODE_ENV=test babel-node ./src/app.js",
+    "test": "jest",
+    "test:clear": "jest --clearCache",
+    "test:vs": "jest --verbose",
+    "test:cov": "jest --coverage",
+    "test:cov:vs": "jest --coverage --verbose",
+    "test:watch": "jest --watch",
+    "test:watch:vs": "jest --watch --verbose"
   },
   "repository": {
     "type": "git",
