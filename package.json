@@ -9,14 +9,13 @@
     "build": "babel src/app.js",
     "start": "cross-env NODE_ENV=prod babel-node ./dist/app.js",
     "start:dev": "cross-env NODE_ENV=dev nodemon --exec babel-node ./src/app.js",
-    "start:test": "cross-env NODE_ENV=test babel-node ./src/app.js",
-    "test": "jest",
-    "test:clear": "jest --clearCache",
-    "test:vs": "jest --verbose",
-    "test:cov": "jest --coverage",
-    "test:cov:vs": "jest --coverage --verbose",
-    "test:watch": "jest --watch",
-    "test:watch:vs": "jest --watch --verbose"
+    "test": "cross-env NODE_ENV=test jest",
+    "test:clear": "cross-env NODE_ENV=test jest --clearCache",
+    "test:vs": "cross-env NODE_ENV=test jest --verbose",
+    "test:cov": "cross-env NODE_ENV=test jest --coverage",
+    "test:cov:vs": "cross-env NODE_ENV=test jest --coverage --verbose",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
+    "test:watch:vs": "cross-env NODE_ENV=test jest --watch --verbose"
   },
   "repository": {
     "type": "git",
