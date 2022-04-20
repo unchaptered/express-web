@@ -1,7 +1,7 @@
 import express from 'express';
 
-import getConfig from './config.module';
-import getMongoDB from './database.module';
+import getConfig from './config';
+import getMongoDB from './database';
 
 getConfig();
 getMongoDB();
