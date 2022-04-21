@@ -29,9 +29,11 @@
   },
   "homepage": "https://github.com/unchaptered/express-web#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "helmet": "^5.0.2",
     "winston": "^3.7.2"
   },
   "devDependencies": {

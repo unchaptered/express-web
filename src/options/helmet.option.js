@@ -1,2 +1,3 @@
-export default function getHelmet() {
-}
+import helmet from 'helmet';
+
+export default getHelmet = () => helmet();

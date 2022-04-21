@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
-export default function getMongoDB() {
+export default getMongoDB = (SERVER_MODE, DB_ADDRESS) => {
 
-    const mongooseModule = mongoose.connect(process.env.DB_ADDRESS)
+    const mongooseModule = mongoose.connect(DB_ADDRESS)
         .then(() => {
-            if (process.env.NODE_ENV !== 'test') console.log('MongoDB is running on Atlas')
+            if (SERVER_MODE !== 'test') console.log('MongoDB is running on Atlas')
         })
         .catch(error => {
-            if (process.env.NODE_ENV !== 'test') console.log('MongoDB is stucked on Atlas', JSON.stringify(error))
+            if (SERVER_MODE !== 'test') console.log('MongoDB is stucked on Atlas', JSON.stringify(error))
         });
         
 }

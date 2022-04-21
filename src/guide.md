@@ -9,5 +9,3 @@
 4. Repository | Query Function
 5. Factory | Factory Pattern or Factory Singleton Pattern
 6. Pipes | Validation Pipes
-
-

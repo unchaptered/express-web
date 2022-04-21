@@ -1,35 +1,32 @@
 import express from 'express';
 
-import getConfig from './settings/config';
-import getMongoDB from './settings/database';
+import getConfig from './options/config';
+import getMongoDB from './options/database';
 
+import InjectFactory from './factories/inject.factory';
 import LoggerFactory from './factories/logger.factory';
 
 import authRouter from './auth/auth.router';
 import homeRouter from './home/home.router';
 import shopRouter from './shop/shop.router';
 
-getConfig();
-getMongoDB();
+const MODE = InjectFactory.getServerMode();
+const PORT = InjectFactory.getPort() ?? 8800;
 
-const PORT = process?.env?.PORT ?? 8800;
-const MODE = process?.env?.NODE_ENV; // prod, dev, test
+getConfig(MODE);
+getMongoDB(MODE, InjectFactory.getDatabase());
 
 const app = express();
     
 app.use(express.json());
-
-if (MODE !== 'test') {
-    app.use(MODE === 'prod' ? LoggerFactory.getWinstonLogger()
-                            : LoggerFactory.getMorganLogger());
-}
+app.use(LoggerFactory.getLogger());
 
 app.use('/auth', authRouter);
 app.use('/shop', shopRouter);
 app.use('/:path', homeRouter);
 
 app.listen(PORT, () => {
-    if (process.env.NODE_ENV !== 'test') console.log(`Server is running on ${PORT}`);
+    if (MODE !== 'test') console.log(`Server is running on ${PORT}`);
 });
 
 export default app;

@@ -1,6 +1,6 @@
-import Response from "./response";
+import ResForm from "./res.form";
 
-class BadResponse extends Response {
+class FailureForm extends ResForm {
 
     constructor(message, {}) {
 
@@ -11,3 +11,5 @@ class BadResponse extends Response {
     }
 
 }
+
+export default FailureForm;

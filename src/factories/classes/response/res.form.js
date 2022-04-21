@@ -1,4 +1,4 @@
-class Response {
+class ResForm {
 
     isSuccess;
     message;
@@ -13,4 +13,4 @@ class Response {
 
 }
 
-export default Response;
+export default ResForm;
