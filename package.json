@@ -29,12 +29,19 @@
   },
   "homepage": "https://github.com/unchaptered/express-web#readme",
   "dependencies": {
+    "@babel/runtime": "^7.17.9",
+    "@types/jest": "^27.4.1",
+    "babel-plugin-add-module-exports": "^1.0.4",
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
-    "winston": "^3.7.2"
+    "mongoose": "^6.3.1",
+    "redis": "^4.0.6",
+    "winston": "^3.7.2",
+    "winston-daily-rotate-file": "^4.6.1"
   },
   "devDependencies": {
     "jest": "^27.5.1",
