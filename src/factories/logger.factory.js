@@ -4,13 +4,13 @@ import WinstonLogger from './classes/logger/winston.logger';
 /**
  * 다형성을 이용한 로거 생성
  */
-class LoggerFactory {
+export default class LoggerFactory {
 
     constructor() {
-        throw new Error('Logger Service is utility class');
+        throw new Error('Logger Factory is utility class');
     }
 
-    getLogger(MODE) {
+    static getLogger(MODE) {
         if (MODE !== 'test') {
             if (MODE !== 'prod') return LoggerFactory.getMorganLogger();
             else return LoggerFactory.getWinstonLogger();
@@ -18,11 +18,11 @@ class LoggerFactory {
         return undefined;
     }
 
-    getMorganLogger() {
+    static getMorganLogger() {
         return MorganLogger.getInstance();
     }
     // for winston
-    getWinstonLogger() {
+    static getWinstonLogger() {
         return WinstonLogger.getInstance();
     }
     

@@ -1,6 +1,6 @@
 import morgan from 'morgan';
 
-class MorganLogger {
+export default class MorganLogger {
 
     static logger;
 
@@ -11,9 +11,11 @@ class MorganLogger {
     static getInstance() {
         if (MorganLogger.logger) return;
 
-
         return MorganLogger.logger = morgan('dev');
+    }
 
+    static resetInstance() {
+        MorganLogger.logger = undefined;
     }
 
 }

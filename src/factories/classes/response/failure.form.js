@@ -2,7 +2,7 @@ import ResForm from "./res.form";
 
 class FailureForm extends ResForm {
 
-    constructor(message, {}) {
+    constructor(message) {
 
         super(message, {});
 

@@ -13,7 +13,7 @@ import shopRouter from './shop/shop.router';
 const MODE = InjectFactory.getServerMode();
 const PORT = InjectFactory.getPort() ?? 8800;
 
-getConfig(MODE);
+getConfig(MODE);5
 getMongoDB(MODE, InjectFactory.getDatabase());
 
 const app = express();
