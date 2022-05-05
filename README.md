@@ -60,11 +60,13 @@ npm i 시 문제가 생긴되면 다음의 절차를 따라주세요.
 1. 필수항목 Babel, Enviroment, Watcher, Test
 2. 선택항목 Faker
 
-- [✅][Babel] @babel/cli @babel/core @babel/node @babel/plugin-proposal-class-properties @babel/plugin-transform-runtime @babel/preset-env @babel/preset-flow eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-prettier eslint-watch prettier @babel/preset-react 
+- [✅][Babel] @babel/cli @babel/core @babel/node @babel/plugin-proposal-class-properties @babel/plugin-transform-runtime @babel/preset-env @babel/preset-flow @babel/preset-react 
 
-- [✅][Test] jest supertest superagent supertest-as-promised node-mocks-http
+- [✅][Eslint] eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-prettier eslint-watch prettier
 
-- [✅][Enviroment] corss-env
+- [✅][Test] jest supertest superagent node-mocks-http
+
+- [✅][Enviroment] cross-env
 - [✅][Watcher] nodemon
 - [✅][Faker] faker@5.5.3
 
