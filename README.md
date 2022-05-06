@@ -2,8 +2,6 @@
 
 express boilerplates with jest, supertest
 
-- Please `apply .gitignore` about `.env*`.
-
 ```json
 {
     "name": "express-web",
@@ -16,7 +14,26 @@ express boilerplates with jest, supertest
 }
 ```
 
-- Usage
+- Please `apply .gitignore` about `.env*`.
+
+```cmd
+# default
+
+/node_modules
+/coverage
+/logs
+
+# plaese add the following
+
+*.env.*
+*.gitignore
+*.gitattributes
+```
+
+- Install
+    - If you encounter some error, please make issue!
+    - Check this files >> [INSTALL.md](https://github.com/unchaptered/express-web/blob/main/md/INSTALL.md)
+
 ```cmd
 1. Clone
 
@@ -28,7 +45,9 @@ npx degit unchaptered/express-web proejct_name
 npm install
 ```
 
-- If you encounter some error, please make `issue`!
+- Fallen
+
+<hr>
 
 ## Index
 
