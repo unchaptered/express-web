@@ -1,8 +1,11 @@
 {
   "name": "express-web",
   "version": "1.0.0",
-  "description": "boiler plates",
+  "license": "ISC",
   "main": "index.js",
+  "author": "unchaptered",
+  "description": "boiler plates",
+  "keywords": [ "express", "jest", "supretest" ],
   "scripts": {
     "prestart": "npm run build",
     "build": "babel src/index.js",
@@ -20,9 +23,6 @@
     "type": "git",
     "url": "git+https://github.com/unchaptered/express-web.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/unchaptered/express-web/issues"
   },
