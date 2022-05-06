@@ -30,9 +30,12 @@ express boilerplates with jest, supertest
 *.gitattributes
 ```
 
+- Git
+    - If you don't know git command, please check this! [Github Rules(rewrite)](https://github.com/unchaptered/express-web/blob/main/md/git/Github%20Rules(rewrite).md)
+
 - Install
-    - If you encounter some error, please make issue!
-    - Check this files >> [INSTALL.md](https://github.com/unchaptered/express-web/blob/main/md/INSTALL.md)
+    - If you encounter some error, please make Issues!
+    - And check this file [install.md](https://github.com/unchaptered/express-web/blob/main/md/module/install.md)
 
 ```cmd
 1. Clone
@@ -45,7 +48,9 @@ npx degit unchaptered/express-web proejct_name
 npm install
 ```
 
-- Fallen
+- Test
+    - If you encounter jest error, please make Issues!
+    - And check this file [test.md](https://github.com/unchaptered/express-web/blob/main/md/test/test.md)
 
 <hr>
 
