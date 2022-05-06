@@ -1,13 +1,12 @@
 import ResForm from "./res.form";
 
+/**
+ * @super(false, message, result);
+ */
 class FailureForm extends ResForm {
 
     constructor(message) {
-
-        super(message, {});
-
-        this.isSuccess = false
-
+        super(false, message, {});
     }
 
 }

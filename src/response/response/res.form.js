@@ -4,8 +4,9 @@ class ResForm {
     message;
     result;
 
-    constructor(message, result) {
+    constructor(isSuccess, message, result) {
 
+        this.isSuccess = isSuccess;
         this.message = message;
         this.result = result;
 

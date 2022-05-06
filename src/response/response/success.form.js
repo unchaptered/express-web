@@ -1,15 +1,13 @@
 import ResForm from "./res.form";
 
+/**
+ * @super(true, message, result);
+ */
 class SuccessForm extends ResForm {
 
     constructor(message, result) {
-
-        super(message, result);
-
-        this.isSuccess = true;
-
+        super(true, message, result);
     }
 
 }
-
 export default SuccessForm;
