@@ -14,6 +14,16 @@ express boilerplates with jest, supertest
 }
 ```
 
+| Title | Subtitle | Description | Written |
+| :---: | :------- | :---------- | :------ |
+| Modules | Dependencies | modules for product | \`22.05.06 |
+| " | DevDependencies | modules for developement / testing | \`22.05.06 |
+| Structure | src/server.js | server is singleton | \`22.05.06 |
+| " | src/config/~ | configuration must be defined.  <br> 1. ConfigFactory is factory <br> 2. Config is singleton | \`22.05.06 |
+| " | src/options/~ | option is two kind of option. <br> 1. database connection <br> 2. global middleware | \`22.05.06 |
+| " | src/response/~ | response must maintain stable form. <br> 1. ResponseFactory is factory <br> 2. Form - SuccessForm / FailureForm is  super -sub class | \`22.05.06 |
+
+
 ## Modules
 
 1. dependencies is module for product
