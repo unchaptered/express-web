@@ -2,6 +2,8 @@
 
 express boilerplates with jest, supertest
 
+- Please `apply .gitignore` about `.env*`.
+
 ```json
 {
     "name": "express-web",
@@ -13,6 +15,20 @@ express boilerplates with jest, supertest
     "keywords": [ "express", "jest", "supretest" ],
 }
 ```
+
+- Usage
+```cmd
+1. Clone
+
+git clone https://github.com/unchaptered/express-web project_name
+npx degit unchaptered/express-web proejct_name
+
+2. Install
+
+npm install
+```
+
+- If you encounter some error, please make `issue`!
 
 ## Index
 
