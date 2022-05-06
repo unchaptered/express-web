@@ -5,7 +5,11 @@
   "main": "index.js",
   "author": "unchaptered",
   "description": "boiler plates",
-  "keywords": [ "express", "jest", "supretest" ],
+  "keywords": [
+    "express",
+    "jest",
+    "supretest"
+  ],
   "scripts": {
     "prestart": "npm run build",
     "build": "babel src/index.js",
@@ -32,7 +36,8 @@
     "@types/jest": "^27.5.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "dotenv": "^16.0.0",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "helmet": "^5.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
