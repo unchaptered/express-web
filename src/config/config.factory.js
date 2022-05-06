@@ -8,10 +8,12 @@ export default class ConfigFactory {
     }
 
     static setConfigPath = (MODE) => {
-        return dotenv.config({
+        const option = {
             path: MODE === 'prod' ? '.env.prod'
                 : MODE === 'dev'  ? '.env.dev' : '.env.test'
-        });
+        }
+        dotenv.config(option);
+        return option;
     }
 
     static getConfigInstance() {
