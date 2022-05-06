@@ -6,9 +6,21 @@ So I want to share some kind of mistake for anyone.
 
 | Title | Description |
 | :---: | :---------- |
+| Principle | The principle to writing test code |
 | Mistake | The parts that we might miss |
 | Settings | Prepares... |
 | Usage | Techniques... |
+
+<hr>
+
+## Principle
+
+1. Testing shows `wrong point` in process.
+2. All testing is `imperfect`, can't be prefect.
+3. Early testing save time/mony.
+4. A few module contain `most wrong point`.
+5. Periodically/Regullary check test code, and then, `add/del test code`
+6. Testing is  written for `Business Logic`, not for `Find error`
 
 <hr>
 
