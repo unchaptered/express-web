@@ -11,6 +11,8 @@ import {
 describe ('Helmet', () => {
 
     it ('getHelmet must be function', () => expect(typeof getHelmet).toBe('function'));
+    it ('getHelmet must return function', () => { expect(typeof getHelmet()).toBe('function')});
+
     it('6 kind of option must be object', () => {
         expect(typeof contentSecurityPolicyOption).toBe('object');
         expect(typeof expectOption).toBe('object');
