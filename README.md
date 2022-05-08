@@ -1,6 +1,6 @@
 # express-web
 
-express boilerplates with jest, supertest
+express boilerplates with jest, supertest.
 
 ```json
 {
