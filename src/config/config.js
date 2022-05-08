@@ -6,13 +6,16 @@ export default class Config {
         if (this.config) return;
 
         this.MODE = process.env.NODE_ENV;
-        this.PORT = process.env.PORT;
+        this.PORT = +process.env.PORT;
         this.PG_CONF = {
             HOST: process.env.PG_CONF_HOST,
             USER: process.env.PG_CONF_USER,
             DATABASE: process.env.PG_CONF_DATABASE,
             PASSWORD: process.env.PG_CONF_PASSWORD,
-            PORT: process.env.PG_CONF_PORT,
+            PORT: +process.env.PG_CONF_PORT,
+            IDLE_TIMEOUT: +process.env.PG_CONF_IDLE_TIMEOUT,
+            CONNECTION_MAX: +process.env.PG_CONF_CONNECTION_MAX,
+            CONNECTION_TIMEOUT:+process.env.PG_CONF_CONNECTION_TIMEOUT
         };
         this[Symbol.iterator] = function* () {
             for (const key of Object.keys(this))
