@@ -1,5 +1,8 @@
 import express from 'express';
 
+import getHelmet from './options/helmet.option';
+
+
 /**
  * @param {*} MODE prod, dev, test
  * @param {*} PORT 80, custom, csutom
@@ -13,6 +16,8 @@ const createServer = (MODE, PORT) => {
     app.use(express.json());
     app.use(express.urlencoded({ extended:true }));
 
+    app.use(getHelmet());
+    
     app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 
     return app;
