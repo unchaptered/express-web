@@ -7,14 +7,32 @@ export default class Config {
 
         this.MODE = process.env.NODE_ENV;
         this.PORT = process.env.PORT;
-        
+        this.PG_CONF = {
+            HOST: process.env.PG_CONF_HOST,
+            USER: process.env.PG_CONF_USER,
+            DATABASE: process.env.PG_CONF_DATABASE,
+            PASSWORD: process.env.PG_CONF_PASSWORD,
+            PORT: process.env.PG_CONF_PORT,
+        };
         this[Symbol.iterator] = function* () {
             for (const key of Object.keys(this))
                 yield this[key];
         };
+        this.PG_CONF[Symbol.iterator] = function* () {
+            for (const key of Object.keys(this))
+                yield this[key];
+        };
         
-        for (const val of this)
-            if (val === undefined) throw new Error('ENV must have value');
+        for (const val of this) {
+            if (typeof val === 'object') {
+                for (const v of val) {
+                    if (!v) throw new Error('ENV must have value');
+                }
+            }
+            else {
+                if (!val) throw new Error('ENV must have value');
+            }
+        }
     }
 
 }
