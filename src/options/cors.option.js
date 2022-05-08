@@ -1,3 +1,3 @@
 import cors from 'cors';
 
-export default getCorsInstance = (SERVER_MODE) => cors();
+export const getCorsInstance = (SERVER_MODE) => cors();
