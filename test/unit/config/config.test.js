@@ -14,17 +14,6 @@ describe ('Config', () => {
         });
     });
 
-    // describe ('Config', () => {
-    //     it ('is singleton class', () => {
-    //         const option = ConfigFactory.setConfigPath('dev');
-    //         expect(option).toStrictEqual({ path: '.env.dev' });
-
-    //         const config = ConfigFactory.getConfigInstance();
-    //         const configRetry = ConfigFactory.getConfigInstance();
-    //         expect(config).toEqual(configRetry);
-    //     });
-    // });
-
     it ('prod must exists in AWS', () => {
         const option = ConfigFactory.setConfigPath('prod');
         expect(option).toStrictEqual({ path: '.env.prod' });

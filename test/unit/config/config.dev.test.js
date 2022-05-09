@@ -22,6 +22,11 @@ describe ('Config.Dev', () => {
         expect(config.PG_CONF.CONNECTION_MAX).toBeDefined();
         expect(config.PG_CONF.CONNECTION_TIMEOUT).toBeDefined();
         expect(config.PG_CONF[Symbol.iterator]).toBeDefined();
+
+        expect(() => config.checkValidation()).not.toThrow();
+
+        config.PG_CONF.HOST = undefined;
+        expect(() => config.checkValidation()).toThrow('ENV must have value');
     });
 
 });
