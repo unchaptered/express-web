@@ -1,6 +1,6 @@
 import { Pool } from "pg";
 
-import Postgres from "../../../src/database/postgres.factory";
+import PostgresFactory from "../../../src/database/postgres.factory";
 
 jest.mock('pg', () => {
     const myPool = {
@@ -13,16 +13,18 @@ jest.mock('pg', () => {
     return { Pool: jest.fn(() => myPool) };
 });
 
-describe ('Potsgres', () => {
+describe ('PotsgresFactory', () => {
 
-    it ('Postgres.pool\'s first state is undefined', () => expect(Postgres.pool).toBeUndefined());
-    it ('new Postgres() throw Error(\'Postgres is utility class\')', () =>
-        expect(() => new Postgres()).toThrow('Postrgres is utility class'));
+    it ('PostgresFactory.pool\'s first state is undefined', () => expect(PostgresFactory.pool).toBeUndefined());
+    it ('new PostgresFactory() throw Error(\'Postgres Factory is utility class\')', () =>
+        expect(() => new PostgresFactory()).toThrow('Postgres Factory is utility class'));
 
     describe ('Postgres contain 3 static methods', () => {
-        it ('getPoolInstance must be function', () => expect(typeof Postgres.getPoolInstance).toBe('function'));
-        it ('getPoolConnect must be function', () => expect(typeof Postgres.getPoolConnect).toBe('function'));
-        it ('runQueryInClient must be function', () => expect(typeof Postgres.runQueryInClient).toBe('function'));
+
+        it ('getPoolInstance must be function', () => expect(typeof PostgresFactory.getPoolInstance).toBe('function'));
+        it ('getPoolConnect must be function', () => expect(typeof PostgresFactory.getPoolConnect).toBe('function'));
+        it ('runQueryInClient must be function', () => expect(typeof PostgresFactory.runQueryInClient).toBe('function'));
+        
     })
 
     describe ('Postgres factory returns Pool', () => {
@@ -36,24 +38,24 @@ describe ('Potsgres', () => {
 
         it ('Only one pool must be exists', () => {
 
-            expect(Postgres.pool).toBeUndefined();
+            expect(PostgresFactory.pool).toBeUndefined();
 
-            const firstPool = Postgres.getPoolInstance(pgConfig);
+            const firstPool = PostgresFactory.getPoolInstance(pgConfig);
             expect(Pool).toBeCalledTimes(1);
             expect(Pool).toBeCalledWith(pgConfigResult);
 
             expect(firstPool).toBeDefined();
 
-            expect(Postgres.pool).toBeDefined();
-            expect(Postgres.pool).toBe(firstPool);
+            expect(PostgresFactory.pool).toBeDefined();
+            expect(PostgresFactory.pool).toBe(firstPool);
 
-            const secondPool = Postgres.getPoolInstance(pgConfig);
+            const secondPool = PostgresFactory.getPoolInstance(pgConfig);
             expect(Pool).toBeCalledTimes(1);
             expect(Pool).not.toBeCalledTimes(2);
 
             expect(secondPool).toBeUndefined();
             
-            expect(Postgres.pool).not.toBe(secondPool);
+            expect(PostgresFactory.pool).not.toBe(secondPool);
             
         });
 
@@ -65,11 +67,11 @@ describe ('Potsgres', () => {
         let mockClient, mockQuery, errorQuery;
 
         beforeEach(() => {
-            Postgres.pool = {
+            PostgresFactory.pool = {
                 totalCount: 0,
-                connect: jest.fn(() => Postgres.pool.totalCount++),
+                connect: jest.fn(() => PostgresFactory.pool.totalCount++),
                 query: jest.fn(),
-                release: jest.fn(() => Postgres.pool.totalCount--)
+                release: jest.fn(() => PostgresFactory.pool.totalCount--)
             };
 
             mockClient = {
@@ -82,12 +84,12 @@ describe ('Potsgres', () => {
             errorQuery = 'error';
         });
 
-        it ('getPoolConnect call Postgres.pool.connect() by 1 times', () => {
+        it ('getPoolConnect call PostgresFactory.pool.connect() by 1 time', () => {
 
-            expect(Postgres.pool).toBeDefined();
-            Postgres.getPoolConnect();
-            expect(Postgres.pool.connect).toBeCalledTimes(1);
-            expect(Postgres.pool.totalCount).toBe(1);
+            expect(PostgresFactory.pool).toBeDefined();
+            PostgresFactory.getPoolConnect();
+            expect(PostgresFactory.pool.connect).toBeCalledTimes(1);
+            expect(PostgresFactory.pool.totalCount).toBe(1);
 
         });
 
@@ -96,7 +98,7 @@ describe ('Potsgres', () => {
             expect(mockClient).toBeDefined();
             expect(mockQuery).toBeDefined();
 
-            Postgres.runQueryInClient(mockClient, mockQuery);
+            PostgresFactory.runQueryInClient(mockClient, mockQuery);
 
             expect(mockClient.query).toBeCalledTimes(3);
             expect(mockClient.query).toBeCalledWith('BEGIN');
@@ -111,7 +113,7 @@ describe ('Potsgres', () => {
             expect(mockClient).toBeDefined();
             expect(errorQuery).toBeDefined();
 
-            Postgres.runQueryInClient(mockClient, errorQuery);
+            PostgresFactory.runQueryInClient(mockClient, errorQuery);
 
             expect(mockClient.query).toBeCalledTimes(3);
             expect(mockClient.query).toBeCalledWith('BEGIN');
