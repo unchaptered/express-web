@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import Config from './config';
+import Config from './class/config';
 
 export default class ConfigFactory { 
 

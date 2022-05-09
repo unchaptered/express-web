@@ -3,8 +3,6 @@ import * as dotenv from 'dotenv';
 export default class Config {
 
     constructor() {
-        if (this.config) return;
-
         // this means constructor
         this.MODE = process.env.NODE_ENV;
         this.PORT = +process.env.PORT;
@@ -27,13 +25,16 @@ export default class Config {
                 yield this[key];
         };
         
+        this.checkValidation();
+    }
+
+    checkValidation() {
         for (const val of this) {
             if (typeof val === 'object') {
                 for (const v of val) {
                     if (!v) throw new Error('ENV must have value');
                 }
-            }
-            else {
+            } else {
                 if (!val) throw new Error('ENV must have value');
             }
         }
