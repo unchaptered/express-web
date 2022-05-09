@@ -5,6 +5,7 @@ export default class Config {
     constructor() {
         if (this.config) return;
 
+        // this means constructor
         this.MODE = process.env.NODE_ENV;
         this.PORT = +process.env.PORT;
         this.PG_CONF = {
