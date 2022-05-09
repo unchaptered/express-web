@@ -46,6 +46,15 @@ describe ('Config', () => {
         expect(config.PG_CONF.CONNECTION_MAX).toBeDefined();
         expect(config.PG_CONF.CONNECTION_TIMEOUT).toBeDefined();
         expect(config.PG_CONF[Symbol.iterator]).toBeDefined();
+
+        expect(typeof config.RD_CONF).toBe('object');
+        expect(config.RD_CONF.HOST).toBeDefined();
+        expect(config.RD_CONF.PORT).toBeDefined();
+        expect(config.RD_CONF.PASSWORD).toBeDefined();
+        expect(config.RD_CONF[Symbol.iterator]).toBeDefined();
+
+        expect(() => config.checkValidation()).not.toThrow();
+        
     });
 
 });
