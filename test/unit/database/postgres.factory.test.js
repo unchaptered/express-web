@@ -12,6 +12,7 @@ jest.mock('pg', () => {
 
     return { Pool: jest.fn(() => myPool) };
 });
+
 describe ('Potsgres', () => {
 
     it ('Postgres.pool\'s first state is undefined', () => expect(Postgres.pool).toBeUndefined());
@@ -61,7 +62,7 @@ describe ('Potsgres', () => {
 
     describe ('Postgres factory returns Client from Pool', () => {
         
-        let mockClient, mockQuery;
+        let mockClient, mockQuery, errorQuery;
 
         beforeEach(() => {
             Postgres.pool = {
@@ -72,10 +73,13 @@ describe ('Potsgres', () => {
             };
 
             mockClient = {
-                query: jest.fn(),
+                query: jest.fn((str) => {
+                    if (str === 'error') throw new Error('error');
+                }),
                 release: jest.fn()
             };
             mockQuery = 'test';
+            errorQuery = 'error';
         });
 
         it ('getPoolConnect call Postgres.pool.connect() by 1 times', () => {
@@ -100,6 +104,22 @@ describe ('Potsgres', () => {
             expect(mockClient.query).toBeCalledWith('COMMIT');
             expect(mockClient.release).toBeCalledTimes(1);
             
+        });
+
+        it ('runQueryInClient call poolClient.query() by 3 tiems with error', () => {
+
+            expect(mockClient).toBeDefined();
+            expect(errorQuery).toBeDefined();
+
+            Postgres.runQueryInClient(mockClient, errorQuery);
+
+            expect(mockClient.query).toBeCalledTimes(3);
+            expect(mockClient.query).toBeCalledWith('BEGIN');
+            expect(mockClient.query).toBeCalledWith(errorQuery);
+            expect(mockClient.query).toBeCalledWith('ROLLBACK');
+            expect(mockClient.release).toBeCalledTimes(1);
+
+
         });
 
     });
