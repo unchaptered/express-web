@@ -19,6 +19,7 @@ export default class Config {
         this.RD_CONF = {
             HOST: process.env.RD_CONF_HOST,
             PORT: process.env.RD_CONF_PORT,
+            DATABASE: process.env.RD_CONF_DATABASE,
             PASSWORD: process.env.RD_CONF_PASSWORD
         };
 
