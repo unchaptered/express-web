@@ -16,18 +16,24 @@ export default class Config {
             CONNECTION_MAX: +process.env.PG_CONF_CONNECTION_MAX,
             CONNECTION_TIMEOUT:+process.env.PG_CONF_CONNECTION_TIMEOUT
         };
-        this[Symbol.iterator] = function* () {
-            for (const key of Object.keys(this))
-                yield this[key];
+        this.RD_CONF = {
+            HOST: process.env.RD_CONF_HOST,
+            PORT: process.env.RD_CONF_PORT,
+            PASSWORD: process.env.RD_CONF_PASSWORD
         };
-        this.PG_CONF[Symbol.iterator] = function* () {
-            for (const key of Object.keys(this))
-                yield this[key];
-        };
+
+        this[Symbol.iterator] = this.gen;
+        this.PG_CONF[Symbol.iterator] = this.gen;
+        this.RD_CONF[Symbol.iterator] = this.gen;
         
         this.checkValidation();
     }
-
+    
+    *gen() {
+        for (const key of Object.keys(this))
+         yield this[key];
+    }
+    
     checkValidation() {
         for (const val of this) {
             if (typeof val === 'object') {
