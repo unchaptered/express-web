@@ -1,6 +1,6 @@
-import { Pg, Pool } from "pg";
+import { Pool } from "pg";
 
-import Postgres from "../../../src/database/postgres";
+import Postgres from "../../../src/database/postgres.factory";
 
 jest.mock('pg', () => {
     const myPool = {
