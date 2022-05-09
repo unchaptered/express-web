@@ -1,8 +1,8 @@
 import ResFormFactory from '../../../src/response/res.form.factory';
 
-import Form from '../../../src/response/response/res.form';
-import SuccessForm from '../../../src/response/response/success.form';
-import FailureForm from '../../../src/response/response/failure.form';
+import Form from '../../../src/response/classes/res.form';
+import SuccessForm from '../../../src/response/classes/success.form';
+import FailureForm from '../../../src/response/classes/failure.form';
 
 describe ('Response', () => {
 
