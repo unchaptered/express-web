@@ -1,5 +1,5 @@
-import SuccessForm from './response/success.form';
-import FailureForm from './response/failure.form';
+import SuccessForm from './classes/success.form';
+import FailureForm from './classes/failure.form';
 
 /**
  * 다형성을 이용한 반환 객체 생성
